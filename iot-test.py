@@ -24,7 +24,7 @@ from machine import Pin, ADC, I2C,RTC
 import ntptime
 import ujson
 import config
-import third_party.BME280
+from third_party import BME280
 
 #setup wireles interface
 sta_if = network.WLAN(network.STA_IF)
