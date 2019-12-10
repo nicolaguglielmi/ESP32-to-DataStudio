@@ -19,14 +19,14 @@ import socket
 import os
 import utime
 import ssl
-from lib.third_party import rsa
-from lib.umqtt.simple import MQTTClient
+from third_party import rsa
+from third_party.umqtt.simple import MQTTClient
 from ubinascii import b2a_base64
 from machine import Pin, ADC, I2C,RTC
 import ntptime
 import ujson
 import config
-import BME280
+import third_party.BME280
 
 #setup wireles interface
 sta_if = network.WLAN(network.STA_IF)

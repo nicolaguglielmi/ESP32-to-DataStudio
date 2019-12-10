@@ -20,21 +20,15 @@ import os
 import utime
 import ssl
 from third_party import rsa
-from umqtt.simple import MQTTClient
+from third_party.umqtt.simple import MQTTClient
 from ubinascii import b2a_base64
 from machine import Pin, ADC, I2C,RTC
 import ntptime
 import ujson
 import config
-import BME280
 
 #setup wireles interface
 sta_if = network.WLAN(network.STA_IF)
-
-#start bme280
-# ESP32 - Pin assignment
-i2c = I2C(scl=Pin(config.device_config['scl_pin']), sda=Pin(config.device_config['sda_pin']), freq=10000)
-
 
 def on_message(topic, message):
     print((topic,message))
@@ -100,15 +94,9 @@ jwt = create_jwt(config.google_cloud_config['project_id'], config.jwt_config['pr
 client = get_mqtt_client(config.google_cloud_config['project_id'], config.google_cloud_config['cloud_region'], config.google_cloud_config['registry_id'], config.google_cloud_config['device_id'], jwt)
 
 while True:
-    bme = BME280.BME280(i2c=i2c)
-    temp = bme.temperature
-    humi = bme.humidity
-    pres = bme.pressure
     message = {
         "device_id": config.google_cloud_config['device_id'],
-        "temperature": float(temp[:-1]),
-        "humidity": float(humi[:-1]),
-        "pressure": float(pres[:-3])
+        "temperature": esp32.raw_temperature(),
     }
     print("Publishing message "+str(ujson.dumps(message)))
 #    led_pin.value(1)
