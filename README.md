@@ -1,5 +1,7 @@
 # ESP32-to-DataStudio
-Script files for ESP32 to Datastudio, a Micropython serverless journey, Medium Tutorial
+Script files for ESP32 to Datastudio, a Micropython serverless journey, Medium Tutorial:
+
+https://medium.com/@nicola.guglielmi/from-device-wiring-to-google-data-studio-a-journey-with-micropython-and-google-serverless-part-1-4b33d103f46d
 
 I have always thought that developing an hardware streamer reading values from one or more sensors and saving that values to the Cloud for storage and analytics would require a lot of effort, both on the hardware and coding side.
 During Codemotion@Milan 2019 anyway, I got in touch with MicroPython and things have never been the same…(Thx to Sebastian Roll)
