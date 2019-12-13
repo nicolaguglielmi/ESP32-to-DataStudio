@@ -1,7 +1,7 @@
 #A quick POW to check that the board get the values from the sensors
 import machine
 #from machine import Pin, ADC, I2C,RTC
-import third_party.BME280
+from third_party import BME280
 import time
 
 # ESP32 - Pin assignment
